@@ -15,3 +15,6 @@ app.get("/",(req,res)=>{
 // src ke andar app.js = server ko create karna
 // server.js = server ko start karna
 // frontend se data ata h bho req.body me ata h
+
+// HuhNZNpBvqJEbOuM
+// mongodb+srv://as:HuhNZNpBvqJEbOuM@cluster0.v2mwqfo.mongodb.net/
