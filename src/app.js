@@ -1,11 +1,11 @@
 // app.js main server ko create karte hai
 
 const express = require('express');
-const noteModel = require("./models/note.model.js")
+const noteModel = require("./models/note.model")
 const app = express();
 
 // module path in express
-// app.use(express.json());
+app.use(express.json());
 // const notes = [];
 
 // app.post('/notes',(req,res)=>{
@@ -34,7 +34,14 @@ const app = express();
 
 // })
 
-
+app.post("/notes", async (req,res)=>{
+    const data  = req.body;
+    await noteModel.create({
+      tit:data.tit,
+      des: data.des
+    });
+    res.status(201).json({message:"Note created successfully!"});
+})
 
 module.exports = app;
 

@@ -1,10 +1,10 @@
-const mongoose = require('mongooose');
+const mongoose = require('mongoose');
 
-const nodeSchema = new mongoose.Schemea({
+const nodeSchema = new mongoose.Schema({
   tit: String,
   des: String
-})
-const noteModel = mongoose.model("note", noteSchema);
+});
 
+const noteModel = mongoose.model("note", nodeSchema);
 
 module.exports = noteModel;
