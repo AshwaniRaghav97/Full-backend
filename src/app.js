@@ -40,7 +40,7 @@ app.post("/notes", async (req,res)=>{
       tit:data.tit,
       des: data.des
     });
-    res.status(201).json({message:"Note created successfully!"});
+    res.status(201).json({message:"Note created in successfully!"});
 })
 
 module.exports = app;
