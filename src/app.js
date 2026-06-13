@@ -40,7 +40,34 @@ app.post("/notes", async (req,res)=>{
       tit:data.tit,
       des: data.des
     });
-    res.status(201).json({message:"Note created in successfully!"});
+    res.status(201).json({message:"Note created successfully!"});
+})
+
+
+app.get('/notes', async (req, res) => {
+    const notes = await noteModel.find();
+    res.status(200).json({
+        message: "Notes fetched successfully!",
+        notes: notes
+    });
+});
+
+
+app.delete("/notes/:id", async (req,res)=>{
+  const id = req.params.id;
+  await noteModel.findByIdAndDelete({
+    _id : id
+  });
+  res.status(200).json({message:"Note deleted successfully!"});
+})
+
+app.patch("/notes/:id",async (req,res)=>{
+  const id = req.params.id;
+  const des = req.body.des;
+  await noteModel.findByIdAndUpdate({
+    _id : id
+  }, {des: des});
+  res.status(200).json({message:"Note updated successfully!"});
 })
 
 module.exports = app;
